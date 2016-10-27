@@ -1,9 +1,9 @@
 (function(){
 	"use strict";
 	var app = {
-		menu : $.ajax('http://192.168.1.40:1337/menu.json'),
-		alice: $.ajax('http://192.168.1.40:1337/alice.md'),
-		mark: $.ajax('http://192.168.1.40:1337/example.md'),
+		menu : $.ajax('http://localhost:8000/menu.json'),
+		alice: $.ajax('http://localhost:8000/alice.md'),
+		mark: $.ajax('http://localhost:8000/example.md'),
 		init:function(){
 			app.menuf();
 			app.transformation();
@@ -12,7 +12,7 @@
 			app.menu.done(function(menuJ){
 				for (var i = 0; i < menuJ.menu.length; i++) {
 					menuJ[i]
-					var pathJson = "http://192.168.1.40:1337"+menuJ.menu[i].path;
+					var pathJson = "http://localhost:8000"+menuJ.menu[i].path;
 					var titleJson = menuJ.menu[i].title;
 					$('#app').append('<span>'+'<a class="mark"data-info="'+pathJson+'" href="#">'+titleJson+'</a>'+'</span>');
 					app.transformation();
